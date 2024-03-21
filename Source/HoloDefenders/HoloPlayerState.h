@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "GameFramework/PlayerState.h"
-#include "HoloDefendersPlayerState.generated.h"
+#include "HoloPlayerState.generated.h"
 
 /**
  * 

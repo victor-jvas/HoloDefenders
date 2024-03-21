@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "HoloCharacterBase.h"
 #include "GameFramework/Character.h"
 #include "HoloDefendersCharacter.generated.h"
 
 UCLASS(Blueprintable)
-class AHoloDefendersCharacter : public ACharacter
+class AHoloDefendersCharacter : public AHoloCharacterBase
 {
 	GENERATED_BODY()
 
