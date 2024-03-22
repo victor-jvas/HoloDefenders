@@ -10,6 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
+#include "PlayerCore/HoloPlayerState.h"
 
 AHoloDefendersCharacter::AHoloDefendersCharacter()
 {
@@ -48,4 +49,31 @@ AHoloDefendersCharacter::AHoloDefendersCharacter()
 void AHoloDefendersCharacter::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+}
+
+void AHoloDefendersCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	InitAbilitySystem();
+	
+}
+
+void AHoloDefendersCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+
+	InitAbilitySystem();
+}
+
+void AHoloDefendersCharacter::InitAbilitySystem()
+{
+	AHoloPlayerState* PS = GetPlayerState<AHoloPlayerState>();
+	if (PS)
+	{
+		AbilitySystemComponent = Cast<UHoloAbilitySystemComponent>(PS->GetAbilitySystemComponent());
+
+		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+	}
+	
 }

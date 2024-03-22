@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystem/HoloAbilitySystemComponent.h"
 #include "GameFramework/Character.h"
 #include "HoloCharacterBase.generated.h"
 
@@ -12,12 +13,14 @@ class HOLODEFENDERS_API AHoloCharacterBase : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
+	
 	AHoloCharacterBase();
 
 protected:
-	// Called when the game starts or when spawned
+	
 	virtual void BeginPlay() override;
+
+	UAbilitySystemComponent* AbilitySystemComponent;
 	
 
 };
