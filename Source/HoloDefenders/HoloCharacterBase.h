@@ -3,18 +3,21 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystemInterface.h"
 #include "AbilitySystem/HoloAbilitySystemComponent.h"
 #include "GameFramework/Character.h"
 #include "HoloCharacterBase.generated.h"
 
 UCLASS(Abstract)
-class HOLODEFENDERS_API AHoloCharacterBase : public ACharacter
+class HOLODEFENDERS_API AHoloCharacterBase : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
 public:
 	
 	AHoloCharacterBase();
+
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 protected:
 	
